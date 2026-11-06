@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Les switchs d'Aurore</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='14' y='14' width='72' height='72' rx='14' fill='%23b4532a'/><rect x='30' y='30' width='40' height='40' rx='8' fill='%23f6efe4'/></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <p class="kicker">Archive · avis de switchs mécaniques</p>
+    <h1>Les switchs d'Aurore</h1>
+    <p class="lede"><span id="count">…</span> switchs testés, notés et enregistrés sur plusieurs claviers.
+      Source&nbsp;: <a id="src" href="#" target="_blank" rel="noopener">la base Notion d'Aurore</a>.</p>
+  </div>
+</header>
+
+<section class="controls wrap" aria-label="Filtres">
+  <div class="row">
+    <input id="q" type="search" placeholder="Rechercher un switch, une marque, un mot de l'avis…" autocomplete="off">
+    <label class="sel">Trier
+      <select id="sort">
+        <option value="note">Note (meilleures d'abord)</option>
+        <option value="nom">Nom (A → Z)</option>
+        <option value="prix">Prix (moins chers d'abord)</option>
+        <option value="db">Plus silencieux (dB)</option>
+        <option value="date">Ajoutés récemment</option>
+      </select>
+    </label>
+  </div>
+  <div class="row chips" id="f-type"></div>
+  <div class="row chips" id="f-son"></div>
+  <div class="row">
+    <label class="sel">Fabricant <select id="f-fab"><option value="">Tous</option></select></label>
+    <label class="sel">Prix <select id="f-prix"><option value="">Tous</option></select></label>
+    <label class="sel">Note minimale
+      <select id="f-note"><option value="0">Toutes</option><option value="3">3 ★ et plus</option><option value="4">4 ★ et plus</option><option value="4.5">4,5 ★ et plus</option><option value="5">5 ★</option></select>
+    </label>
+    <label class="check"><input type="checkbox" id="f-audio"> Avec enregistrement</label>
+    <button id="reset" class="ghost" type="button">Réinitialiser</button>
+  </div>
+  <p class="result" id="result" aria-live="polite"></p>
+</section>
+
+<main class="wrap"><ul class="grid" id="grid"></ul></main>
+
+<dialog id="dlg" aria-labelledby="d-title">
+  <div class="dhead">
+    <button class="nav" id="d-prev" type="button" aria-label="Switch précédent">‹</button>
+    <h2 id="d-title"></h2>
+    <button class="nav" id="d-next" type="button" aria-label="Switch suivant">›</button>
+    <button class="close" id="d-close" type="button" aria-label="Fermer">✕</button>
+  </div>
+  <div class="dbody" id="d-body"></div>
+</dialog>
+
+<footer class="wrap foot">
+  Tous les avis, notes, photos et enregistrements sont l'œuvre d'Aurore, repris de sa base Notion publique.
+  Cette page n'en est qu'une copie consultable.
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
